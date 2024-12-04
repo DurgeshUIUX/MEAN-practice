@@ -1,0 +1,43 @@
+<div class="container-fluid">
+<h1 [class.gray]="h1Style">Search Movie here...</h1>
+<br> <br>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Search Here" name="movieName" [(ngModel)]="movieName" required>
+    </mat-form-field> <button mat-raised-button (click)="getMovies()">Search</button>
+
+
+  </form>
+  </div>
+  <br><br>
+
+
+  <div class="row">
+    <div class="col-sm-4" >
+      <mat-card  class="example-card" *ngFor="let i of movieInfo">
+        <mat-card-header>
+
+
+        </mat-card-header>
+       <img mat-card-image src={{i.Poster}} alt="poster" style="height:400px;width:300px;">
+        <mat-card-content>
+
+
+          <h4> {{i.Title}} </h4><br><br>
+
+          <h5>Type :   {{i.Type}} </h5>
+          <h5>Year :  {{i.Year }}</h5>
+          <h5>IMDBId :  {{i.imdbID}} </h5>
+
+
+
+        </mat-card-content>
+
+      </mat-card> <br><br>
+    </div>
+
+  </div>
+
+
+  <br><br>

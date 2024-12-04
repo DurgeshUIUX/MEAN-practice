@@ -1,0 +1,95 @@
+<p>
+  contact works!
+</p>
+List is <hr>
+<div>
+<table class="table table-bordered" id="DataTable">
+  <thead>
+    <tr>
+
+      <th>ID</th>
+      <th>Name  </th>
+      <th>Email</th>
+      <th>User Name</th>
+      <th>Edit</th>
+      
+
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let d of contactData| paginate: { itemsPerPage: 10, currentPage: p };
+  let i = index">
+
+      <td>{{d.Id}}</td>
+      <td>{{d.name}}</td>
+      <td>{{d.email}}</td>
+      <td>{{d.username}}</td>
+  
+
+      <td><span class='fa fa-pencil-square-o' (click)="edit(d.Id)" data-toggle="tooltip" title="Edit!"
+          style="color:#ED992F"></span></td>
+      
+
+    </tr>
+
+  </tbody>
+</table>
+<pagination-controls (pageChange)="p = $event" class="pull-right" maxSize="9"></pagination-controls>
+</div>
+
+<br><br><br>
+<mat-card class="example-card" >
+  <mat-card-header>
+    <!-- <div mat-card-avatar class="example-header-image"></div><br> -->
+  
+    <mat-card-title style="color:#ED992F;text-align:center;font-size:20px;"> User Details Form</mat-card-title><br>
+    <mat-card-subtitle>Add User details here</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+  
+      <form class="example-form">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput id="name" name="name" [(ngModel)]="name" placeholder=" Name" required>
+                <mat-error *ngIf="value.invalid">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput id="username" name="username" [(ngModel)]="username" placeholder=" User Name" required>
+                <mat-error *ngIf="value.invalid">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Enter your email" name="email" [(ngModel)]="email" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+
+            </td>
+            <td>
+              <mat-form-field >
+                <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="password" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+          <button mat-raised-button color="primary" id="addbtn" (click)="createuser()"
+            style="background-color:#ED992F;">Add</button>
+      </form>
+  
+  </mat-card-content>
+  
+  </mat-card><br><br>
+  

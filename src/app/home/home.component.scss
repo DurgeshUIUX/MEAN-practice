@@ -1,0 +1,21 @@
+.gray {
+    color: gray;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 700px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.example-card {
+  width: 400px;
+  height: auto;
+  margin-top: 100px;
+  display: inline-grid;
+}
+mat-grid-tile {
+  background: lightblue;
+}
